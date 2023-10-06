@@ -1,0 +1,22 @@
+syntax="proto3";
+
+option go_package = "github.com/VicenteRuizA/proto/pb";
+
+package severity;
+
+
+service Report {
+	rpc IdentifyCondition (SeverityRequest) returns (SeverityReply) {}
+}
+
+// Clientes envian request a servidor central para procesar su informacion
+// Pensar en terminos informaticos mas que linguisticos
+// No es que los clientes pidan la severidad, piden procesar la severidad.
+message SeverityRequest {
+	string name = 1;
+	string condition = 2;
+}
+
+message SeverityReply {
+	string message = 1;
+}
